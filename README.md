@@ -9,10 +9,10 @@ new personal access token.
 
 From there you will need to define an environment variable in your shell like
 this:
-    export DO_TOKEN=[YOUR GENERATED KEY]
+    ```export DO_TOKEN=[YOUR GENERATED KEY]```
 
 After these steps have been completed, just fire off python fog.py.
 
 It relies on requests for the HTTPS API request and termcolor for nice colored
 output in the terminal. You can install them with:
-    pip install requests termcolor
+    ```pip install requests termcolor```
