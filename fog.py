@@ -2,6 +2,7 @@
 
 # A simple command line tool to check the health of your DigitalOcean droplets.
 # author: Garrett Squire, gsquire
+import sys
 import os
 
 import requests
@@ -54,6 +55,9 @@ def main():
     req = requests.get(URL, headers=headers)
     if req.status_code == 200:
         parse_output(req.json())
+    else:
+        print("Could not perform request.")
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()
