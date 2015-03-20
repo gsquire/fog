@@ -22,19 +22,23 @@ def output_ip(networks):
     for network in networks['v4']:
         print('\tipv4 address: {0}'.format(network['ip_address']))
 
+def print_status(color):
+    """
+    Print the status to STDOUT based on the color passed in.
+    """
+    print('\tstatus: ', end='')
+    print(colored(status, color))
+
 def color_status(status):
     """
     Based on the status of the droplet, color the output.
     """
     if status == 'new' or status == 'archive':
-        print('\tstatus: ', end='')
-        print(colored(status, WARN))
+        print_status(WARN)
     elif status == 'off':
-        print('\tstatus: ', end='')
-        print(colored(status, ERR))
+        print_status(ERR)
     else:
-        print('\tstatus: ', end='')
-        print(colored(status, OK))
+        print_status(OK)
 
 def parse_output(droplets):
     """
